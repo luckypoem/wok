@@ -38,13 +38,19 @@ try:
         """Markdown renderer."""
         extensions = ['markdown', 'mkd', 'md']
 
-        plugins = ['def_list', 'footnotes']
+        plugins = [
+            'markdown.extensions.def_list',
+            'markdown.extensions.headerid',
+            'markdown.extensions.tables',
+            'markdown.extensions.toc',
+            'markdown.extensions.footnotes'
+        ]
         if have_pygments:
             plugins.append('codehilite(css_class=highlight)')
 
         @classmethod
         def render(cls, plain):
-            return markdown(plain, cls.plugins)
+            return markdown(plain, extensions=cls.plugins)
 
     all.append(Markdown)
 
