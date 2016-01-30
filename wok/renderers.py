@@ -39,6 +39,7 @@ try:
         extensions = ['markdown', 'mkd', 'md']
 
         plugins = [
+            'markdown.extensions.attr_list',
             'markdown.extensions.def_list',
             'markdown.extensions.headerid',
             'markdown.extensions.tables',
